@@ -17,8 +17,8 @@ class Book(Base):
     __tablename__ = "books"
     id : Mapped[int] = mapped_column(Integer,primary_key=True,autoincrement=True)
     author_id : Mapped[int] = mapped_column(Integer,ForeignKey("authors.id"))
-    title : Mapped[str] = mapped_column(String(30))
-    publisher : Mapped[str] = mapped_column(String(30),nullable=True)
+    title : Mapped[str] = mapped_column(String(100))
+    publisher : Mapped[str] = mapped_column(String(100),nullable=True)
     cover_image : Mapped[bytes] = mapped_column(LargeBinary,nullable=True)
     published_date : Mapped[date] = mapped_column(Date)
     author: Mapped["Author"] = relationship("Author", back_populates="books")
